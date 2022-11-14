@@ -1,4 +1,7 @@
-import { legacy_createStore } from "redux";
+import { applyMiddleware, compose, legacy_createStore } from "redux";
+import { logger } from "./middlewares";
 import reducers from "./reducers";
 
-export default legacy_createStore(reducers);
+const composeEnhancers = compose(applyMiddleware(logger));
+
+export default legacy_createStore(reducers, composeEnhancers);
