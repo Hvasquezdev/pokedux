@@ -1,19 +1,20 @@
 import React from "react";
-import { StarOutlined } from "@ant-design/icons";
 import { Card } from "antd";
 import Meta from "antd/lib/card/Meta";
+import StarButton from "./StarButton";
 
-function PokemonCard({ pokemon }) {
+function PokemonCard({ pokemon, onClickStarButton }) {
   return (
     <Card
       style={{ width: 250 }}
       title={pokemon.name}
-      cover={
-        <img src={pokemon.image} alt={pokemon.name} />
-      }
-      extra={<StarOutlined />}
+      cover={<img src={pokemon.image} alt={pokemon.name} />}
+      extra={<StarButton onClick={onClickStarButton} />}
     >
-      <Meta description={pokemon.typesStr} style={{ textTransform: "capitalize" }} />
+      <Meta
+        description={pokemon.typesStr}
+        style={{ textTransform: "capitalize" }}
+      />
     </Card>
   );
 }
