@@ -9,7 +9,12 @@ function PokemonCard({ pokemon, onClickStarButton }) {
       style={{ width: 250 }}
       title={pokemon.name}
       cover={<img src={pokemon.image} alt={pokemon.name} />}
-      extra={<StarButton onClick={onClickStarButton} />}
+      extra={
+        <StarButton
+          isFilled={pokemon.isFavourite}
+          onClick={onClickStarButton}
+        />
+      }
     >
       <Meta
         description={pokemon.typesStr}
