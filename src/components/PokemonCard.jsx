@@ -9,11 +9,11 @@ function PokemonCard({ pokemon }) {
       style={{ width: 250 }}
       title={pokemon.name}
       cover={
-        <img src="https://assets.reedpopcdn.com/pokemon_go_ditto_disguises_A16ilOs.png/BROK/thumbnail/1200x900/quality/100/pokemon_go_ditto_disguises_A16ilOs.png" />
+        <img src={pokemon.image} alt={pokemon.name} />
       }
       extra={<StarOutlined />}
     >
-      <Meta description="Normal" />
+      <Meta description={pokemon.typesStr} style={{ textTransform: "capitalize" }} />
     </Card>
   );
 }
