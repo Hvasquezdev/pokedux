@@ -31,6 +31,7 @@ class ApiPokemonService {
         ...response,
         image: this.getPokemonThumb(response),
         typesStr: response.types.map(({ type }) => type.name).join(", "),
+        isFavourite: false,
       };
     });
     return await Promise.all(promises);

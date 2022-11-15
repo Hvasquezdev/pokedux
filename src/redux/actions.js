@@ -1,5 +1,9 @@
 import ApiPokemonService from "../core/services/Pokemon.api.service";
-import { SET_LOADING_POKEMON_LIST, SET_POKEMON_LIST } from "./actionTypes";
+import {
+  SET_LOADING_POKEMON_LIST,
+  SET_POKEMON_LIST,
+  TOGGLE_POKEMON_FAVOURITE,
+} from "./actionTypes";
 
 const pokemonService = new ApiPokemonService();
 
@@ -30,3 +34,10 @@ export const getPokemonList = () => async (dispatch) => {
     dispatch(setLoadingPokemonList(false));
   }
 };
+
+export const togglePokemonFavourite = (pokemonIndex) => ({
+  type: TOGGLE_POKEMON_FAVOURITE,
+  payload: {
+    index: pokemonIndex,
+  },
+});
