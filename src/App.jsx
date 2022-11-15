@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 
-import { Col, Input } from "antd";
+import { Col, Input, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonList } from "./redux/actions";
 import PokemonList from "./components/PokemonList";
@@ -9,6 +9,7 @@ import logo from "./assets/images/svg/logo.svg";
 
 function App() {
   const pokemonList = useSelector((state) => state.pokemon.list);
+  const isLoadingPokemonList = useSelector((state) => state.pokemon.loading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +26,13 @@ function App() {
         <Input.Search placeholder="Buscar..." />
       </Col>
 
-      <PokemonList list={pokemonList} />
+      {isLoadingPokemonList ? (
+        <Col offset={12} style={{ paddingTop: 24 }}>
+          <Spin spinning size="large" />
+        </Col>
+      ) : (
+        <PokemonList list={pokemonList} />
+      )}
     </div>
   );
 }
