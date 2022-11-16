@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { togglePokemonFavourite } from "../redux/actions";
+import { togglePokemonFavourite } from "../redux/features/pokemonSlice";
 import "./../assets/styles/PokemonList.css";
 
 import PokemonCard from "./PokemonCard";
@@ -14,7 +14,9 @@ function PokemonList({ list }) {
         <PokemonCard
           pokemon={pokemon}
           key={`${key}-${pokemon.name}`}
-          onClickStarButton={() => dispatch(togglePokemonFavourite(key))}
+          onClickStarButton={() =>
+            dispatch(togglePokemonFavourite({ index: key }))
+          }
         />
       ))}
     </div>

@@ -3,7 +3,7 @@ import "./App.css";
 
 import { Col, Input, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemonList } from "./redux/actions";
+import { getPokemonList } from "./redux/asyncFeatures/asyncPokemonSlice";
 import PokemonList from "./components/PokemonList";
 import logo from "./assets/images/svg/logo.svg";
 
